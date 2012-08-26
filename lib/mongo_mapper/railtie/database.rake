@@ -45,15 +45,15 @@ namespace :db do
     end
   end
 
-  unless Rake::Task.task_defined?("db:test:prepare")
-    namespace :test do
-      task :prepare => :environment do
-        MongoMapper.connect('test')
-        MongoMapper.database.collections.select {|c| c.name !~ /system/ }.each(&:drop)
-        MongoMapper.connect(Rails.env)
-      end
-    end
-  end
+  # unless Rake::Task.task_defined?("db:test:prepare")
+  #   namespace :test do
+  #     task :prepare => :environment do
+  #       MongoMapper.connect('test')
+  #       MongoMapper.database.collections.select {|c| c.name !~ /system/ }.each(&:drop)
+  #       MongoMapper.connect(Rails.env)
+  #     end
+  #   end
+  # end
 
   desc 'Load indexes from db/indexes.rb'
   task :index => :environment do
@@ -62,4 +62,4 @@ namespace :db do
   end
 end
 
-task 'test:prepare' => 'db:test:prepare'
+# task 'test:prepare' => 'db:test:prepare'
