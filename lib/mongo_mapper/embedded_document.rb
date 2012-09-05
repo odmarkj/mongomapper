@@ -17,7 +17,7 @@ module MongoMapper
     include Plugins::Accessible
     include Plugins::Protected
     include Plugins::Rails
-    include Plugins::Sci
+    # include Plugins::Sci
     include Plugins::Serialization
     include Plugins::Timestamps
     include Plugins::Validations
